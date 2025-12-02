@@ -14,13 +14,11 @@ import com.example.receitasapp.data.Receita
 
 class ReceitaAdapter(
     private val ctx: Context,
-    private val lista: List<Receita>
+    private var lista: MutableList<Receita>
 ) : BaseAdapter() {
 
     override fun getCount() = lista.size
-
     override fun getItem(position: Int) = lista[position]
-
     override fun getItemId(position: Int) = lista[position].id.toLong()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -36,13 +34,17 @@ class ReceitaAdapter(
         botao.setOnClickListener {
             (ctx as? Activity)?.let { activity ->
                 val navController = Navigation.findNavController(activity, R.id.navHost)
-                val bundle = android.os.Bundle().apply {
-                    putInt("id", receita.id)
-                }
+                val bundle = android.os.Bundle().apply { putInt("id", receita.id) }
                 navController.navigate(R.id.detalhesFragment, bundle)
             }
         }
 
         return view
+    }
+
+    fun updateData(novaLista: List<Receita>) {
+        lista.clear()
+        lista.addAll(novaLista)
+        notifyDataSetChanged()
     }
 }
