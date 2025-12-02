@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.receitasapp.ui.HomeFragment"
+        android:label="Início"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/listaFragment"
+        android:name="com.example.receitasapp.ui.ListaFragment"
+        android:label="Receitas"
+        tools:layout="@layout/fragment_lista">
+        <argument android:name="tipo" app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detalhesFragment"
+        android:name="com.example.receitasapp.ui.DetalhesFragment"
+        android:label="Detalhes"
+        tools:layout="@layout/fragment_detalhes">
+        <argument android:name="id" app:argType="integer"/>
+    </fragment>
+
+</navigation>

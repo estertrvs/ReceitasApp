@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Título da Receita"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#CC0000"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/txtIngredientesTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingredientes:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/txtIngredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lista de ingredientes..."
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/txtPassosTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modo de preparo:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/txtPassos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Passos numerados..."
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginBottom="8dp"/>
+    </LinearLayout>
+</ScrollView>
