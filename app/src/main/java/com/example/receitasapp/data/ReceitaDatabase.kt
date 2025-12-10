@@ -31,6 +31,8 @@ interface ReceitaDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(receitas: List<Receita>)
 
+    @Insert
+    fun insert(receita: Receita)
 
     @Update
     fun update(receita: Receita)

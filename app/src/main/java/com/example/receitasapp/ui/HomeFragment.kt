@@ -58,6 +58,10 @@ class HomeFragment : Fragment() {
             )
         }
 
+        binding.btnCadastrar.setOnClickListener {
+            findNavController().navigate(R.id.cadastroFragment)
+        }
+
         return binding.root
     }
 
