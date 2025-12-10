@@ -30,7 +30,13 @@
     <fragment
         android:id="@+id/cadastroFragment"
         android:name="com.example.receitasapp.ui.CadastroFragment"
-        android:label="Nova Receita"
-        tools:layout="@layout/fragment_cadastro" />
+        android:label="Receita"
+        tools:layout="@layout/fragment_cadastro">
+
+        <argument
+            android:name="receitaId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
 </navigation>

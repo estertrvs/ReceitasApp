@@ -27,6 +27,8 @@ interface ReceitaDao {
     @Query("SELECT * FROM tabela_receitas")
     fun getAll(): List<Receita>
 
+    @Query("SELECT * FROM tabela_receitas WHERE nome = :nome LIMIT 1")
+    fun getByNome(nome: String): Receita?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(receitas: List<Receita>)
