@@ -3,6 +3,7 @@ package com.example.receitasapp.data
 import android.content.Context
 import androidx.room.Dao
 import androidx.room.Database
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -35,6 +36,9 @@ interface ReceitaDao {
 
     @Insert
     fun insert(receita: Receita)
+
+    @Delete
+    fun delete(receita: Receita)
 
     @Update
     fun update(receita: Receita)

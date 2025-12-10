@@ -40,7 +40,7 @@
         android:text="Receitas Doces"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FF5555"/>
+        android:backgroundTint="#CC0000"/>
 
     <Button
         android:id="@+id/btnSalgadas"
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#FF5555"/>
+        android:backgroundTint="#CC0000"/>
 
     <Button
         android:id="@+id/btnCadastrar"
