@@ -15,14 +15,10 @@ class UserPreferences(private val context: Context) {
     companion object {
         val NOME_CHEF_KEY = stringPreferencesKey("nome_chef")
     }
-
-
     val nomeChef: Flow<String?> = context.dataStore.data
         .map { preferences ->
             preferences[NOME_CHEF_KEY] ?: "Visitante"
         }
-
-
     suspend fun salvarNome(nome: String) {
         context.dataStore.edit { preferences ->
             preferences[NOME_CHEF_KEY] = nome

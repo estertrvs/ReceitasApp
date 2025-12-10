@@ -94,7 +94,7 @@
         <Button
             android:id="@+id/btnSalvar"
             android:text="Salvar Receita"
-            android:backgroundTint="#FF5555"
+            android:backgroundTint="#CC0000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

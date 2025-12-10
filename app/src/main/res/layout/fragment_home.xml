@@ -38,6 +38,7 @@
     <Button
         android:id="@+id/btnDoces"
         android:text="Receitas Doces"
+        android:textColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#CC0000"/>
@@ -45,6 +46,7 @@
     <Button
         android:id="@+id/btnSalgadas"
         android:text="Receitas Salgadas"
+        android:textColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -53,9 +55,11 @@
     <Button
         android:id="@+id/btnCadastrar"
         android:text="Cadastrar Receita"
+        android:textColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        app:iconTint="#FFFFFF"
         android:backgroundTint="#CC0000"
         app:icon="@android:drawable/ic_input_add"
         app:iconGravity="textStart"/>

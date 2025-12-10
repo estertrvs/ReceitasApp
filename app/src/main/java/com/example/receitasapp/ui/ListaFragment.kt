@@ -1,9 +1,11 @@
 package com.example.receitasapp.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.SearchView
 import com.example.receitasapp.adapter.ReceitaAdapter
@@ -24,10 +26,8 @@ class ListaFragment : Fragment() {
 
         val tipo = arguments?.getString("tipo") ?: "doce"
 
-
         val db = AppDatabase.getDatabase(requireContext())
         todasReceitas = db.receitaDao().getByTipo(tipo)
-
 
         adapter = ReceitaAdapter(requireContext(), todasReceitas.toMutableList())
         binding.listViewReceitas.adapter = adapter
@@ -39,6 +39,11 @@ class ListaFragment : Fragment() {
 
     private fun setupSearch() {
         val searchView = binding.searchViewReceitas
+
+        val searchEditText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        searchEditText.setTextColor(Color.parseColor("#212121")) // texto quase preto
+        searchEditText.setHintTextColor(Color.parseColor("#757575")) // cor do hint opcional
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
