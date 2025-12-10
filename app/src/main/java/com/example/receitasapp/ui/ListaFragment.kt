@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.SearchView
 import com.example.receitasapp.adapter.ReceitaAdapter
+import com.example.receitasapp.data.AppDatabase
 import com.example.receitasapp.data.Receita
-import com.example.receitasapp.data.ReceitaData
 import com.example.receitasapp.databinding.FragmentListaBinding
 
 class ListaFragment : Fragment() {
@@ -23,7 +23,11 @@ class ListaFragment : Fragment() {
         binding = FragmentListaBinding.inflate(inflater, container, false)
 
         val tipo = arguments?.getString("tipo") ?: "doce"
-        todasReceitas = ReceitaData.getByTipo(tipo)
+
+
+        val db = AppDatabase.getDatabase(requireContext())
+        todasReceitas = db.receitaDao().getByTipo(tipo)
+
 
         adapter = ReceitaAdapter(requireContext(), todasReceitas.toMutableList())
         binding.listViewReceitas.adapter = adapter

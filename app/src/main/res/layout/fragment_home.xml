@@ -3,7 +3,27 @@
     android:layout_height="match_parent"
     android:padding="32dp"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FAFAFA">
+
+    <TextView
+        android:id="@+id/txtBoasVindas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olá, Visitante!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="4dp"/>
+
+    <Button
+        android:id="@+id/btnMudarNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alterar meu nome"
+        android:textColor="#FF5555"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_marginBottom="32dp"/>
 
     <TextView
         android:layout_width="wrap_content"

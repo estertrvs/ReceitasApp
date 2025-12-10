@@ -1,9 +1,11 @@
 package com.example.receitasapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.receitasapp.data.AppDatabase
+import com.example.receitasapp.data.ReceitaData
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +17,16 @@ class MainActivity : AppCompatActivity() {
 
         val navHost = supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
         setupActionBarWithNavController(navHost.navController)
+
+
+        val db = AppDatabase.getDatabase(this)
+
+
+        if (db.receitaDao().getAll().isEmpty()) {
+
+            db.receitaDao().insertAll(ReceitaData.receitas)
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

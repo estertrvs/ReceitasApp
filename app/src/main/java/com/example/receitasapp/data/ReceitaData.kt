@@ -1,12 +1,32 @@
 package com.example.receitasapp.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+
+
+@Entity(tableName = "tabela_receitas")
 data class Receita(
-    val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val nome: String,
-    val tipo: String, // "doce" ou "salgado"
+    val tipo: String,
     val ingredientes: List<String>,
-    val passos: List<String>
+    val passos: List<String>,
+    var nota: Int = 0
 )
+
+
+class Converters {
+    @TypeConverter
+    fun listToString(list: List<String>): String {
+        return list.joinToString(";;;")
+    }
+
+    @TypeConverter
+    fun stringToList(data: String): List<String> {
+        return data.split(";;;")
+    }
+}
 
 object ReceitaData {
     val receitas = listOf(
@@ -25,7 +45,8 @@ object ReceitaData {
                 "Despeje em forma untada e enfarinhada.",
                 "Asse por 35–45 minutos; faça o teste do palito.",
                 "Desenforme e deixe esfriar antes de servir."
-            )
+            ),
+            0
         ),
         Receita(
             2, "Brigadeiro tradicional", "doce",
@@ -38,7 +59,8 @@ object ReceitaData {
                 "Cozinhe em fogo baixo mexendo sempre.",
                 "Quando desgrudar do fundo (ponto de brigadeiro), desligue.",
                 "Deixe esfriar, unte as mãos, faça bolinhas e passe no granulado."
-            )
+            ),
+            0
         ),
         Receita(
             3, "Pudim de leite condensado", "doce",
@@ -52,7 +74,8 @@ object ReceitaData {
                 "Despeje na forma caramelizada.",
                 "Leve ao forno em banho-maria a 180°C por 50–60 minutos.",
                 "Resfrie, desenforme e sirva gelado."
-            )
+            ),
+            0
         ),
         Receita(
             4, "Mousse de maracujá", "doce",
@@ -64,7 +87,8 @@ object ReceitaData {
                 "Bata todos os ingredientes no liquidificador.",
                 "Leve à geladeira por pelo menos 2 horas.",
                 "Sirva com sementes de maracujá por cima (opcional)."
-            )
+            ),
+            0
         ),
         Receita(
             5, "Brownie clássico", "doce",
@@ -79,7 +103,8 @@ object ReceitaData {
                 "Junte chocolate derretido e incorpore farinha e sal.",
                 "Despeje em forma forrada e asse a 180°C por 25–30 minutos.",
                 "Resfrie e corte em quadrados."
-            )
+            ),
+            0
         ),
         Receita(
             6, "Cookies de chocolate", "doce",
@@ -95,7 +120,8 @@ object ReceitaData {
                 "Junte secos e incorpore as gotas de chocolate.",
                 "Faça porções e leve ao forno a 180°C por 10–12 minutos.",
                 "Resfrie em grade antes de servir."
-            )
+            ),
+            0
         ),
         Receita(
             7, "Quindim", "doce",
@@ -108,7 +134,8 @@ object ReceitaData {
                 "Despeje em forminhas untadas com açúcar.",
                 "Asse em banho-maria a 180°C por 40–50 minutos.",
                 "Resfrie e desenforme."
-            )
+            ),
+            0
         ),
         Receita(
             8, "Torta de limão", "doce",
@@ -122,7 +149,8 @@ object ReceitaData {
                 "Bata leite condensado, creme de leite e suco de limão.",
                 "Despeje sobre a base; leve para gelar 2–3 horas.",
                 "Finalize com raspas de limão (e merengue se desejar)."
-            )
+            ),
+            0
         ),
         Receita(
             9, "Arroz doce cremoso", "doce",
@@ -135,7 +163,8 @@ object ReceitaData {
                 "Adicione leite, açúcar, canela e casca de limão.",
                 "Cozinhe mexendo até ficar cremoso.",
                 "Retire canela e casca; sirva morno com canela em pó."
-            )
+            ),
+            0
         ),
         Receita(
             10, "Panqueca doce com banana", "doce",
@@ -148,7 +177,8 @@ object ReceitaData {
                 "Misture farinha, açúcar, ovo, leite e manteiga.",
                 "Cozinhe porções em frigideira antiaderente.",
                 "Sirva com banana, mel ou açúcar e canela."
-            )
+            ),
+            0
         ),
 
         Receita(
@@ -164,7 +194,8 @@ object ReceitaData {
                 "Monte em camadas: molho, massa, presunto, muçarela.",
                 "Finalize com queijo; cubra com papel alumínio.",
                 "Asse a 180°C por 30–40 minutos; gratine nos últimos minutos."
-            )
+            ),
+            0
         ),
         Receita(
             12, "Estrogonofe de frango", "salgado",
@@ -179,7 +210,8 @@ object ReceitaData {
                 "Adicione ketchup, mostarda e champignon.",
                 "Junte o creme de leite e aqueça sem ferver.",
                 "Sirva com arroz branco e batata palha."
-            )
+            ),
+            0
         ),
         Receita(
             13, "Feijoada simples", "salgado",
@@ -192,7 +224,8 @@ object ReceitaData {
                 "Refogue bacon, linguiça, cebola e alho.",
                 "Misture ao feijão e cozinhe para apurar.",
                 "Ajuste o sal e sirva com arroz e farofa."
-            )
+            ),
+            0
         ),
         Receita(
             14, "Moqueca capixaba", "salgado",
@@ -206,7 +239,8 @@ object ReceitaData {
                 "Tempere com colorau e regue com azeite.",
                 "Cozinhe tampado até o peixe ficar macio.",
                 "Finalize com coentro e sirva."
-            )
+            ),
+            0
         ),
         Receita(
             15, "Arroz carreteiro", "salgado",
@@ -219,7 +253,8 @@ object ReceitaData {
                 "Refogue cebola e alho; junte carne seca e pimentão.",
                 "Adicione arroz e água; cozinhe até secar.",
                 "Finalize com cheiro-verde e ajuste o sal."
-            )
+            ),
+            0
         ),
         Receita(
             16, "Coxinha de frango", "salgado",
@@ -233,7 +268,8 @@ object ReceitaData {
                 "Deixe amornar e sove a massa.",
                 "Recheie com frango, modele e empane em ovo e farinha de rosca.",
                 "Frite em óleo quente até dourar."
-            )
+            ),
+            0
         ),
         Receita(
             17, "Escondidinho de carne seca", "salgado",
@@ -247,7 +283,8 @@ object ReceitaData {
                 "Refogue carne seca com cebola e alho.",
                 "Monte camadas de purê, carne seca e queijo.",
                 "Gratine a 200°C por 15–20 minutos."
-            )
+            ),
+            0
         ),
         Receita(
             18, "Frango à parmegiana", "salgado",
@@ -259,7 +296,8 @@ object ReceitaData {
                 "Tempere os filés; empane em farinha, ovo e farinha de rosca.",
                 "Frite ou asse até dourar.",
                 "Cubra com molho e queijo; gratine até derreter."
-            )
+            ),
+            0
         ),
         Receita(
             19, "Quiche de alho-poró", "salgado",
@@ -273,7 +311,8 @@ object ReceitaData {
                 "Abra na forma e pré-asse 10 minutos a 180°C.",
                 "Refogue alho-poró; misture com ovos, creme e queijo.",
                 "Despeje sobre a massa e asse por 25–30 minutos."
-            )
+            ),
+            0
         ),
         Receita(
             20, "Tapioca recheada de queijo e tomate", "salgado",
@@ -285,10 +324,8 @@ object ReceitaData {
                 "Aqueça frigideira e espalhe a goma até unir.",
                 "Adicione queijo, tomate e orégano.",
                 "Dobre e aqueça até o queijo derreter; sirva."
-            )
+            ),
+            0
         )
     )
-
-    fun getByTipo(tipo: String) = receitas.filter { it.tipo == tipo }
-    fun getById(id: Int) = receitas.find { it.id == id } ?: receitas.first()
 }
